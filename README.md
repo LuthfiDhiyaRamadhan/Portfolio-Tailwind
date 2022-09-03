@@ -1,1 +1,1 @@
-https://github.com/LuthfiDhiyaRamadhan/Portfolio-Tailwind.git
+https://luthfidhiyaramadhan.github.io/Portfolio-Tailwind/
