@@ -50,3 +50,56 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
   } else {
     darkToggle.checked=false;
   }
+
+ 
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.tab-content');
+        const indicator = document.getElementById('indicator');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Hide all tab contents
+                contents.forEach(content => content.classList.add('hidden'));
+
+                // Show the target content
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.remove('hidden');
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Move the indicator
+                const index = Array.from(buttons).indexOf(this);
+                const tabWidth = this.offsetWidth;
+                indicator.style.transform = `translateX(${tabWidth * index}px)`;
+            });
+        });
+
+        // Optionally set initial active tab
+        buttons[0].click();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.portfolio-slide');
+        let currentIndex = 0;
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('hidden', i !== index);
+            });
+        }
+    
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+    
+        showSlide(currentIndex);
+        setInterval(nextSlide, 6000); // Change slide every 5 seconds
+    });
+    
+    
+

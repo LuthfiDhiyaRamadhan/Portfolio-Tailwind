@@ -28,3 +28,27 @@ body{
 #dark-toggle:checked ~ label div.toggle-circle{
     @apply translate-x-3;
 }
+
+.tab-content {
+    @apply mt-8;
+}
+
+.tab-button.active {
+    @apply bg-primary text-white;
+}
+
+
+#indicator {
+    @apply h-1 bg-primary dark:bg-primary;
+    width: 33.33%; /* Adjust based on number of tabs */
+}
+.portfolio-slide {
+    transition: opacity 1s ease-in-out;
+}
+.portfolio-slide.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.portfolio-slide:not(.hidden) {
+    opacity: 1;
+}
